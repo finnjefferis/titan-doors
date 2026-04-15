@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Titan Doors | TradeFit Sussex</title>
+<style>
+  :root {
+    --navy: #1c1a18;
+    --gold: #c89216;
+    --gold-light: #e8bc28;
+    --charcoal: #111010;
+    --slate: #2a2826;
+    --light: #f7f5f2;
+    --white: #ffffff;
+    --text: #4a5568;
+    --text-light: #a0aec0;
+    --red: #c82828;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { text-decoration: none; color: inherit; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .wgl-theme-header,
+  .wgl-site-header,
+  .wgl-sticky-header,
+  .wgl-mobile-header,
+  .wgl_notices_wrapper,
+  .wgl-theme-footer,
+  footer.footer,
+  footer#footer,
+  .site-footer,
+  .copyright_wrapper,
+  .wgl-page-header,
+  .page-header { display: none !important; }
+
+  .elementor-section-wrap,
+  .elementor-element,
+  .elementor-widget-wrap,
+  .elementor-widget-container,
+  .elementor-container,
+  .elementor-column-wrap,
+  .elementor-widget-html,
+  .elementor,
+  [data-elementor-type],
+  .site-main,
+  #main,
+  main,
+  .page-content,
+  .wgl-container,
+  .container-wrapper,
+  .content-wrapper,
+  .site-content,
+  .entry-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 100% !important;
+  }
+
+  .elementor-column-gap-default > .elementor-column > .elementor-element-populated {
+    padding: 0 !important;
+  }
+
+  /* ── NAV ── */
+  .td-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    background: #232220;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200, 146, 22, 0.15);
+    padding-top: 0;
+  }
+
+  .td-nav::before {
+    content: '';
+    position: absolute;
+    top: -68px;
+    left: 0;
+    right: 0;
+    height: 68px;
+    background: #232220;
+    z-index: -1;
+  }
+
+  body.admin-bar .td-nav { top: 32px; }
+  @media (max-width: 782px) {
+    body.admin-bar .td-nav { top: 46px; }
+  }
+
+  .td-nav .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 68px !important;
+    padding: 0 24px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .td-nav__logo {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0;
+    line-height: 1 !important;
+  }
+
+  .td-nav__logo img {
+    height: 56px;
+    width: auto;
+    display: block;
+  }
+
+  .td-nav__brand {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: -0.5px;
+    margin-left: 10px;
+    line-height: 1;
+  }
+
+  .td-nav__brand span { color: var(--red); }
+
+  .td-nav__links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 32px !important;
+    list-style: none !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+  }
+
+  .td-nav__links li {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    float: none !important;
+    line-height: 1 !important;
+  }
+
+  .td-nav__links a {
+    color: var(--text-light) !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    transition: color 0.2s;
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    border: none !important;
+    background: none !important;
+  }
+
+  .td-nav__links a:hover,
+  .td-nav__links a.active { color: var(--gold) !important; }
+
+  .td-nav__cta {
+    background: var(--gold);
+    color: var(--charcoal);
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .td-nav__cta:hover { background: var(--gold-light); }
+
+  .td-nav__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none !important;
+    border: none !important;
+    padding: 4px !important;
+    margin: 0 !important;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .td-nav__hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+    border-radius: 2px;
+  }
+
+  /* ── HERO ── */
+  .td-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+    overflow: hidden;
+  }
+
+  .td-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://tradefitsussex.com/wp-content/uploads/2022/10/69bed94f-015b-498e-9589-4373c4f830e7.jpg') center/cover no-repeat;
+    opacity: 0.5;
+  }
+
+  .td-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(17, 16, 16, 0.45) 0%,
+      rgba(17, 16, 16, 0.82) 100%
+    );
+  }
+
+  .td-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    padding: 148px 0 80px;
+  }
+
+  .td-hero__tag {
+    display: inline-block;
+    background: rgba(200, 146, 22, 0.15);
+    color: var(--gold);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+  }
+
+  .td-hero__title {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.08;
+    margin-bottom: 16px;
+  }
+
+  .td-hero__subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+
+  .td-hero__desc {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    max-width: 520px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+
+  .td-hero__buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .td-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+
+  .td-btn--primary {
+    background: var(--gold);
+    color: var(--charcoal);
+    font-weight: 700;
+  }
+
+  .td-btn--primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .td-btn--outline {
+    border-color: rgba(255,255,255,0.3);
+    color: var(--white);
+    background: transparent;
+  }
+
+  .td-btn--outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* ── SECTION DEFAULTS ── */
+  .td-section { padding: 100px 0; }
+  .td-section--dark { background: var(--navy); color: var(--white); }
+  .td-section--light { background: var(--light); }
+
+  .td-section__tag {
+    display: inline-block;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .td-section__title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .td-section__title--light { color: var(--white); }
+  .td-section__title--dark { color: var(--navy); }
+
+  .td-section__text {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    max-width: 560px;
+    color: var(--text);
+  }
+
+  .td-section--dark .td-section__text { color: var(--text-light); }
+
+  /* ── ABOUT SPLIT ── */
+  .td-about__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .td-about__image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.12);
+    aspect-ratio: 4/5;
+    object-fit: cover;
+  }
+
+  /* ── PRODUCT TABS ── */
+  .td-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 48px;
+  }
+
+  .td-tab {
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: 2px solid rgba(200, 146, 22, 0.2);
+    background: transparent;
+    color: var(--text);
+    transition: all 0.2s;
+    line-height: 1.2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+  }
+
+  .td-tab:hover { border-color: var(--gold); color: var(--gold); }
+
+  .td-tab.active {
+    background: var(--gold);
+    color: var(--charcoal);
+    border-color: var(--gold);
+    font-weight: 700;
+  }
+
+  .td-tab-panel { display: none; }
+  .td-tab-panel.active { display: block; }
+
+  /* ── FEATURES ── */
+  .td-features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+  }
+
+  .td-feature-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200, 146, 22, 0.12);
+    border-radius: 16px;
+    padding: 40px 32px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .td-feature-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(200, 146, 22, 0.35);
+  }
+
+  .td-feature-card__icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(200, 146, 22, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .td-feature-card__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .td-feature-card__text {
+    font-size: 0.92rem;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  /* ── PRODUCTS ── */
+  .td-products__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .td-product-card {
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .td-product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  }
+
+  .td-product-card__img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    filter: brightness(1.1);
+  }
+
+  .td-product-card__body { padding: 24px; }
+
+  .td-product-card__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .td-product-card__text {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── PROCESS ── */
+  .td-process__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+  }
+
+  .td-process-step { text-align: center; position: relative; }
+
+  .td-process-step__num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .td-process-step__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .td-process-step__text {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── CTA BANNER ── */
+  .td-cta-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+    border-radius: 24px;
+    padding: 72px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .td-cta-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(200,146,22,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .td-cta-banner__title {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .td-cta-banner__text {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin: 0 auto 32px;
+    position: relative;
+  }
+
+  /* ── FOOTER ── */
+  .td-footer {
+    background: var(--charcoal);
+    padding: 64px 0 32px;
+    color: var(--text-light);
+  }
+
+  .td-footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .td-footer__brand {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .td-footer__brand span { color: var(--red); }
+
+  .td-footer__heading {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+  }
+
+  .td-footer__link {
+    display: block;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    padding: 4px 0;
+    transition: color 0.2s;
+  }
+
+  .td-footer__link:hover { color: var(--gold); }
+
+  .td-footer__bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 24px;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-light);
+  }
+
+  /* ── MOBILE NAV ── */
+  .td-nav__mobile-menu {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: #232220;
+    backdrop-filter: blur(12px);
+    padding: 0 24px;
+    border-bottom: 1px solid rgba(200,146,22,0.15);
+    z-index: 99998;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.35s ease;
+  }
+
+  body.admin-bar .td-nav__mobile-menu { top: 100px; }
+  @media (max-width: 782px) {
+    body.admin-bar .td-nav__mobile-menu { top: 114px; }
+  }
+
+  .td-nav__mobile-menu.open {
+    max-height: 500px;
+    opacity: 1;
+    padding: 16px 24px 24px;
+  }
+
+  .td-nav__mobile-menu a {
+    display: block;
+    padding: 12px 0;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transform: translateY(-8px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease, color 0.2s;
+  }
+
+  .td-nav__mobile-menu.open a { transform: translateY(0); opacity: 1; }
+  .td-nav__mobile-menu.open a:nth-child(1) { transition-delay: 0.05s; }
+  .td-nav__mobile-menu.open a:nth-child(2) { transition-delay: 0.08s; }
+  .td-nav__mobile-menu.open a:nth-child(3) { transition-delay: 0.11s; }
+  .td-nav__mobile-menu.open a:nth-child(4) { transition-delay: 0.14s; }
+  .td-nav__mobile-menu.open a:nth-child(5) { transition-delay: 0.17s; }
+  .td-nav__mobile-menu.open a:nth-child(6) { transition-delay: 0.20s; }
+  .td-nav__mobile-menu.open a:nth-child(7) { transition-delay: 0.23s; }
+  .td-nav__mobile-menu.open a:nth-child(8) { transition-delay: 0.26s; }
+  .td-nav__mobile-menu a:last-child { border-bottom: none; }
+  .td-nav__mobile-menu a:hover { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .td-about__grid { gap: 40px; }
+    .td-features__grid { grid-template-columns: repeat(2, 1fr); }
+    .td-products__grid { grid-template-columns: repeat(2, 1fr); }
+    .td-footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+
+  @media (max-width: 768px) {
+    .td-nav__links,
+    .td-nav .td-nav__cta { display: none !important; }
+    .td-nav__hamburger { display: flex; }
+    .td-hero__content { padding: 128px 0 60px; }
+    .td-section { padding: 64px 0; }
+    .td-about__grid { grid-template-columns: 1fr; gap: 32px; }
+    .td-about__image { aspect-ratio: 16/10; }
+    .td-features__grid { grid-template-columns: 1fr; }
+    .td-products__grid { grid-template-columns: 1fr; }
+    .td-process__grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .td-cta-banner { padding: 48px 28px; }
+    .td-footer__grid { grid-template-columns: 1fr; gap: 32px; }
+    .td-tabs { flex-wrap: wrap; }
+  }
+
+  @media (max-width: 480px) {
+    .td-hero__buttons { flex-direction: column; }
+    .td-btn { justify-content: center; width: 100%; }
+    .td-process__grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .td-anim {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .td-anim.td-visible { opacity: 1; transform: translateY(0); }
+
+  .td-anim-stagger .td-anim { transition-delay: 0s; }
+  .td-anim-stagger .td-anim:nth-child(2) { transition-delay: 0.1s; }
+  .td-anim-stagger .td-anim:nth-child(3) { transition-delay: 0.2s; }
+  .td-anim-stagger .td-anim:nth-child(4) { transition-delay: 0.3s; }
+  .td-anim-stagger .td-anim:nth-child(5) { transition-delay: 0.4s; }
+  .td-anim-stagger .td-anim:nth-child(6) { transition-delay: 0.5s; }
+
+  .td-hero .td-anim { transform: translateY(36px); transition-duration: 0.9s; }
+  .td-hero__tag.td-anim { transition-delay: 0.15s; }
+  .td-hero__title.td-anim { transition-delay: 0.3s; }
+  .td-hero__subtitle.td-anim { transition-delay: 0.45s; }
+  .td-hero__desc.td-anim { transition-delay: 0.55s; }
+  .td-hero__buttons.td-anim { transition-delay: 0.65s; }
+
+  .td-anim-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .td-anim-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .td-anim-left.td-visible,
+  .td-anim-right.td-visible { opacity: 1; transform: translateX(0); }
+
+  /* ── TESTIMONIALS ── */
+  .td-testimonials { overflow: hidden; }
+
+  .td-reviews-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 48px;
+  }
+
+  .td-reviews-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200, 146, 22, 0.1);
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+
+  .td-reviews-rating__stars { color: #f5b731; font-size: 1.2rem; letter-spacing: 2px; }
+  .td-reviews-rating__score { font-weight: 700; color: var(--navy); font-size: 1rem; }
+  .td-reviews-rating__source { color: var(--text); font-size: 0.85rem; }
+
+  .td-carousel {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .td-carousel__track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    cursor: grab;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .td-carousel__track:active { cursor: grabbing; }
+  .td-carousel__slide { flex: 0 0 100%; padding: 0 16px; }
+
+  .td-review-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 20px;
+    padding: 40px 36px;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  }
+
+  .td-review-card__stars { color: #f5b731; font-size: 1.3rem; letter-spacing: 3px; margin-bottom: 20px; }
+
+  .td-review-card__text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .td-review-card__author { font-weight: 700; color: var(--navy); font-size: 1rem; }
+  .td-review-card__meta { color: var(--text-light); font-size: 0.82rem; margin-top: 4px; }
+
+  .td-carousel__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: var(--white);
+    color: var(--navy);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    z-index: 2;
+  }
+
+  .td-carousel__btn:hover { border-color: var(--gold); color: var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+  .td-carousel__btn--prev { left: 0; }
+  .td-carousel__btn--next { right: 0; }
+
+  .td-carousel__dots { display: flex; justify-content: center; gap: 10px; margin-top: 32px; }
+
+  .td-carousel__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(200, 146, 22, 0.25);
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0;
+  }
+
+  .td-carousel__dot.active { background: var(--gold); transform: scale(1.2); }
+
+  @media (max-width: 768px) {
+    .td-carousel { padding: 0 12px; }
+    .td-carousel__btn { display: none; }
+    .td-carousel__slide { padding: 0 8px; }
+    .td-review-card { padding: 28px 24px; }
+    .td-review-card__text { font-size: 0.95rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .td-anim, .td-anim-left, .td-anim-right { opacity: 1; transform: none; transition: none; }
+    .td-carousel__track { transition: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ────── NAVIGATION ────── -->
+<nav class="td-nav">
+  <div class="container">
+    <a href="/titan-doors" class="td-nav__logo">
+      <img src="https://tradefitsussex.com/wp-content/uploads/2026/04/PHOTO-2026-01-23-11-01-15.jpg" alt="Titan Doors">
+      <span class="td-nav__brand">Titan <span>Doors</span></span>
+    </a>
+    <ul class="td-nav__links">
+      <li><a href="/">TradeFit</a></li>
+      <li><a href="https://tradefitsussex.com/?page_id=6498">About Us</a></li>
+      <li><a href="https://tradefitsussex.com/?page_id=5360">Windows</a></li>
+      <li><a href="https://tradefitsussex.com/?page_id=5623">Skylights</a></li>
+      <li><a href="https://tradefitsussex.com/?page_id=3767">Gallery</a></li>
+    </ul>
+    <a href="/contact-us" class="td-nav__cta">Get a Free Quote</a>
+    <button class="td-nav__hamburger" onclick="document.getElementById('tdMobileMenu').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="td-nav__mobile-menu" id="tdMobileMenu">
+  <a href="/">TradeFit Home</a>
+  <a href="https://tradefitsussex.com/?page_id=6498">About Us</a>
+  <a href="https://tradefitsussex.com/?page_id=5360">Windows</a>
+  <a href="https://tradefitsussex.com/?page_id=5623">Roof Lanterns &amp; Skylights</a>
+  <a href="https://tradefitsussex.com/?page_id=3767">Portfolio Gallery</a>
+  <a href="/contact-us">Contact Us</a>
+</div>
+
+<!-- ────── HERO ────── -->
+<section class="td-hero">
+  <div class="container">
+    <div class="td-hero__content">
+      <div class="td-hero__tag td-anim">Energy Efficient, Secure &amp; Durable</div>
+      <h1 class="td-hero__title td-anim">Titan Doors</h1>
+      <p class="td-hero__subtitle td-anim">Premium composite, bifold &amp; sliding doors without compromise.</p>
+      <p class="td-hero__desc td-anim">From stunning front doors to expansive bifolds that bring your garden into your home. We manage the whole process end-to-end — survey, delivery, installation and aftercare.</p>
+      <div class="td-hero__buttons td-anim">
+        <a href="/contact-us" class="td-btn td-btn--primary">Get a Free Quote</a>
+        <a href="#products" class="td-btn td-btn--outline">View Our Range</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── ABOUT: COMPOSITE DOORS ────── -->
+<section class="td-section">
+  <div class="container">
+    <div class="td-about__grid">
+      <img
+        class="td-about__image td-anim-left"
+        src="https://tradefitsussex.com/wp-content/uploads/2022/10/7ffb56a3-5a9b-4f6a-a9a7-42a9a77cb99f.jpg"
+        alt="Titan composite door installation"
+        loading="lazy"
+      >
+      <div class="td-anim-right">
+        <span class="td-section__tag">Composite Doors</span>
+        <h2 class="td-section__title td-section__title--dark">Composite doors crafted by the UK's leading suppliers</h2>
+        <p class="td-section__text" style="margin-bottom: 20px;">
+          Titan composite doors are engineered to suit every budget and specification. Our range starts with robust GRP (Glass Reinforced Plastic) doors offering outstanding value, steps up through solid timber core options for enhanced thermal performance and security, and extends to high-end aluminium and biometric door systems for those seeking the very best.
+        </p>
+        <p class="td-section__text" style="margin-bottom: 28px;">
+          Available in a wide range of styles, colours and glass options, every Titan door is made to measure and tailored to your exact specifications. Whether you're upgrading a single entrance or fitting out an entire development, we have the solution.
+        </p>
+        <a href="/contact-us" class="td-btn td-btn--primary">Discuss Your Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── ABOUT: BIFOLD & SLIDING DOORS ────── -->
+<section class="td-section td-section--light">
+  <div class="container">
+    <div class="td-about__grid">
+      <div class="td-anim-left">
+        <span class="td-section__tag">Bifold &amp; Sliding Doors</span>
+        <h2 class="td-section__title td-section__title--dark">Bringing your garden into your home</h2>
+        <p class="td-section__text" style="margin-bottom: 20px;">
+          Bring your garden into your home with our bifold or sliding doors. Created for durability, our aluminium doors feature slimmer frames that support larger panes of glass to really open up your living space — also available in a marine grade option.
+        </p>
+        <p class="td-section__text" style="margin-bottom: 28px;">
+          Available in a wide range of colours and styles, the price covers the whole process end-to-end — from survey to delivery, installation and even aftercare.
+        </p>
+        <a href="/contact-us" class="td-btn td-btn--primary">Get a Quote</a>
+      </div>
+      <img
+        class="td-about__image td-anim-right"
+        src="https://tradefitsussex.com/wp-content/uploads/2022/10/bi-folding-doors-1.jpg"
+        alt="Bifold doors installation by TradeFit Sussex"
+        loading="lazy"
+      >
+    </div>
+  </div>
+</section>
+
+<!-- ────── FEATURES ────── -->
+<section class="td-section td-section--dark">
+  <div class="container">
+    <div style="text-align:center; max-width:640px; margin:0 auto;" class="td-anim">
+      <span class="td-section__tag">Why Choose Us</span>
+      <h2 class="td-section__title td-section__title--light">Built to outperform on every measure</h2>
+    </div>
+    <div class="td-features__grid td-anim-stagger">
+      <div class="td-feature-card td-anim">
+        <div class="td-feature-card__icon">&#128274;</div>
+        <h3 class="td-feature-card__title">Advanced Security</h3>
+        <p class="td-feature-card__text">Multi-point locking systems and solid cores provide exceptional resistance against forced entry, keeping your home safe.</p>
+      </div>
+      <div class="td-feature-card td-anim">
+        <div class="td-feature-card__icon">&#127777;&#65039;</div>
+        <h3 class="td-feature-card__title">Thermal Efficiency</h3>
+        <p class="td-feature-card__text">Industry-leading U-values ensure outstanding insulation, helping reduce energy bills and keeping your home warm year-round.</p>
+      </div>
+      <div class="td-feature-card td-anim">
+        <div class="td-feature-card__icon">&#127912;</div>
+        <h3 class="td-feature-card__title">Bespoke Design</h3>
+        <p class="td-feature-card__text">Huge range of colours, glazing options, hardware finishes and panel designs to match your property perfectly.</p>
+      </div>
+      <div class="td-feature-card td-anim">
+        <div class="td-feature-card__icon">&#9889;</div>
+        <h3 class="td-feature-card__title">Weather Resistant</h3>
+        <p class="td-feature-card__text">GRP skins and marine-grade aluminium won't warp, crack, bow or discolour — even in the harshest British weather.</p>
+      </div>
+      <div class="td-feature-card td-anim">
+        <div class="td-feature-card__icon">&#128736;&#65039;</div>
+        <h3 class="td-feature-card__title">Professional Installation</h3>
+        <p class="td-feature-card__text">Our experienced team handles every installation with precision, ensuring a perfect fit, clean finish and hassle-free experience.</p>
+      </div>
+      <div class="td-feature-card td-anim">
+        <div class="td-feature-card__icon">&#9989;</div>
+        <h3 class="td-feature-card__title">Full Aftercare</h3>
+        <p class="td-feature-card__text">We don't disappear after fitting. Comprehensive aftercare and warranty support gives you long-term peace of mind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── PRODUCTS (TABBED) ────── -->
+<section class="td-section td-section--light" id="products">
+  <div class="container">
+    <div style="text-align:center; max-width:600px; margin:0 auto; margin-bottom: 40px;" class="td-anim">
+      <span class="td-section__tag">Our Range</span>
+      <h2 class="td-section__title td-section__title--dark">Door styles to suit every property</h2>
+    </div>
+
+    <div class="td-tabs td-anim">
+      <button class="td-tab active" onclick="switchTab('composite')">Composite Doors</button>
+      <button class="td-tab" onclick="switchTab('bifold')">Bifold &amp; Sliding Doors</button>
+    </div>
+
+    <div class="td-tab-panel active" id="tab-composite">
+      <div class="td-products__grid">
+        <div class="td-product-card">
+          <img class="td-product-card__img" src="https://tradefitsussex.com/wp-content/uploads/2022/10/cottage-doors.jpg" alt="Traditional composite door" loading="lazy">
+          <div class="td-product-card__body">
+            <h3 class="td-product-card__title">Traditional Collection</h3>
+            <p class="td-product-card__text">Classic panel designs with elegant glazing options — perfect for period properties and character homes.</p>
+          </div>
+        </div>
+        <div class="td-product-card">
+          <img class="td-product-card__img" src="https://tradefitsussex.com/wp-content/uploads/2022/10/contepoary-doors.jpg" alt="Contemporary composite door" loading="lazy">
+          <div class="td-product-card__body">
+            <h3 class="td-product-card__title">Contemporary Collection</h3>
+            <p class="td-product-card__text">Clean lines, bold colours and modern hardware — designed for new builds and renovated properties.</p>
+          </div>
+        </div>
+        <div class="td-product-card">
+          <img class="td-product-card__img" src="https://tradefitsussex.com/wp-content/uploads/2022/10/door-colours.jpg" alt="Stable and french doors" loading="lazy">
+          <div class="td-product-card__body">
+            <h3 class="td-product-card__title">Stable &amp; French Doors</h3>
+            <p class="td-product-card__text">Versatile double-leaf and split-door designs that add character and functionality to any entrance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="td-tab-panel" id="tab-bifold">
+      <div class="td-products__grid">
+        <div class="td-product-card">
+          <img class="td-product-card__img" src="https://tradefitsussex.com/wp-content/uploads/2022/10/69bed94f-015b-498e-9589-4373c4f830e7.jpg" alt="Aluminium bifold doors" loading="lazy">
+          <div class="td-product-card__body">
+            <h3 class="td-product-card__title">Aluminium Bifold Doors</h3>
+            <p class="td-product-card__text">Slimline aluminium frames with expansive glazing — open up your home to the garden with seamless indoor-outdoor living.</p>
+          </div>
+        </div>
+        <div class="td-product-card">
+          <img class="td-product-card__img" src="https://tradefitsussex.com/wp-content/uploads/2022/10/Windows-crafted-1.jpg" alt="Sliding patio doors" loading="lazy">
+          <div class="td-product-card__body">
+            <h3 class="td-product-card__title">Sliding Patio Doors</h3>
+            <p class="td-product-card__text">Smooth gliding panels with ultra-slim sightlines — maximise natural light without compromising on space.</p>
+          </div>
+        </div>
+        <div class="td-product-card">
+          <img class="td-product-card__img" src="https://tradefitsussex.com/wp-content/uploads/2022/10/bi-folding-doors-1.jpg" alt="Marine grade bifold doors" loading="lazy">
+          <div class="td-product-card__body">
+            <h3 class="td-product-card__title">Marine Grade Options</h3>
+            <p class="td-product-card__text">Designed for coastal properties — marine grade aluminium that resists salt air corrosion and stands up to the elements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── PROCESS ────── -->
+<section class="td-section">
+  <div class="container">
+    <div style="text-align:center; max-width:600px; margin:0 auto;" class="td-anim">
+      <span class="td-section__tag">How It Works</span>
+      <h2 class="td-section__title td-section__title--dark">From first contact to final finish</h2>
+      <p class="td-section__text" style="margin: 0 auto;">We manage the whole process end-to-end so you don't have to worry about a thing.</p>
+    </div>
+    <div class="td-process__grid td-anim-stagger">
+      <div class="td-process-step td-anim">
+        <div class="td-process-step__num">1</div>
+        <h3 class="td-process-step__title">Free Survey</h3>
+        <p class="td-process-step__text">We visit your property, take precise measurements and discuss your design preferences.</p>
+      </div>
+      <div class="td-process-step td-anim">
+        <div class="td-process-step__num">2</div>
+        <h3 class="td-process-step__title">Design &amp; Quote</h3>
+        <p class="td-process-step__text">Receive a detailed, no-obligation quote with full specifications and colour samples.</p>
+      </div>
+      <div class="td-process-step td-anim">
+        <div class="td-process-step__num">3</div>
+        <h3 class="td-process-step__title">Manufacture</h3>
+        <p class="td-process-step__text">Your bespoke door is precision-manufactured to your exact requirements.</p>
+      </div>
+      <div class="td-process-step td-anim">
+        <div class="td-process-step__num">4</div>
+        <h3 class="td-process-step__title">Installation</h3>
+        <p class="td-process-step__text">Our expert fitters install your new door with minimal disruption and a pristine finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── CTA ────── -->
+<section class="td-section td-section--light">
+  <div class="container">
+    <div class="td-cta-banner td-anim">
+      <h2 class="td-cta-banner__title">Ready to transform your home?</h2>
+      <p class="td-cta-banner__text">Whether it's a stunning composite front door or expansive bifolds opening onto your garden — get a free, no-obligation survey and quote today.</p>
+      <a href="/contact-us" class="td-btn td-btn--primary" style="position:relative;">Get a Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ────── TESTIMONIALS ────── -->
+<section class="td-section td-testimonials" id="reviews">
+  <div class="container">
+    <div class="td-reviews-header td-anim">
+      <div class="td-reviews-rating">
+        <span class="td-reviews-rating__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="td-reviews-rating__score">5.0</span>
+        <span class="td-reviews-rating__source">on Google</span>
+      </div>
+      <span class="td-section__tag">Testimonials</span>
+      <h2 class="td-section__title td-section__title--dark">What our customers say</h2>
+    </div>
+
+    <div class="td-carousel td-anim" id="tdCarousel">
+      <button class="td-carousel__btn td-carousel__btn--prev" aria-label="Previous review">&#8249;</button>
+      <div class="td-carousel__track" id="tdTrack">
+
+        <div class="td-carousel__slide">
+          <div class="td-review-card">
+            <div class="td-review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="td-review-card__text">"We have used Simon on a few different occasions and have always found his workmanship to be very good. Whether it has been a roof lantern, windows, doors or an internal glass wall he has always delivered a fantastic result."</p>
+            <div class="td-review-card__author">James Harrington</div>
+            <div class="td-review-card__meta">Google Local Guide</div>
+          </div>
+        </div>
+
+        <div class="td-carousel__slide">
+          <div class="td-review-card">
+            <div class="td-review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="td-review-card__text">"Simon is a rare breed of honest and brilliant at his work. At every stage he has gone the extra mile in order to deliver the best finish possible for me. The attention to detail has been incredible and I now have family members using him."</p>
+            <div class="td-review-card__author">Jamie Clark</div>
+            <div class="td-review-card__meta">Google Review</div>
+          </div>
+        </div>
+
+        <div class="td-carousel__slide">
+          <div class="td-review-card">
+            <div class="td-review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="td-review-card__text">"Just had my conservatory changed and fitted by Simon, completely professional throughout and done an amazing job, great price also. I recommend using this company."</p>
+            <div class="td-review-card__author">Justin Sommerford</div>
+            <div class="td-review-card__meta">Google Review</div>
+          </div>
+        </div>
+
+        <div class="td-carousel__slide">
+          <div class="td-review-card">
+            <div class="td-review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="td-review-card__text">"Simon has done lots of jobs for myself and family, ranging from installing new double glazed windows, to installing a composite front door with frame and recently putting in a glass stair bannister. I would thoroughly recommend Tradefit Sussex."</p>
+            <div class="td-review-card__author">Peter Barker</div>
+            <div class="td-review-card__meta">Google Review</div>
+          </div>
+        </div>
+
+      </div>
+      <button class="td-carousel__btn td-carousel__btn--next" aria-label="Next review">&#8250;</button>
+      <div class="td-carousel__dots" id="tdDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── FOOTER ────── -->
+<footer class="td-footer">
+  <div class="container">
+    <div class="td-footer__grid">
+      <div>
+        <div class="td-footer__brand">Titan <span>Doors</span></div>
+        <p style="font-size:0.9rem; line-height:1.7; max-width:320px;">
+          Premium composite, bifold and sliding doors supplied and installed by Titan Doors across Sussex.
+        </p>
+      </div>
+      <div>
+        <div class="td-footer__heading">Quick Links</div>
+        <a href="/" class="td-footer__link">Home</a>
+        <a href="https://tradefitsussex.com/?page_id=6498" class="td-footer__link">About Us</a>
+        <a href="https://tradefitsussex.com/?page_id=3767" class="td-footer__link">Gallery</a>
+        <a href="/contact-us" class="td-footer__link">Contact</a>
+      </div>
+      <div>
+        <div class="td-footer__heading">Products</div>
+        <a href="/composite-doors" class="td-footer__link">Composite Doors</a>
+        <a href="/bi-fold-doors" class="td-footer__link">Bifold &amp; Sliding Doors</a>
+        <a href="https://tradefitsussex.com/?page_id=5360" class="td-footer__link">Windows</a>
+        <a href="https://tradefitsussex.com/?page_id=5623" class="td-footer__link">Roof Lanterns &amp; Skylights</a>
+      </div>
+      <div>
+        <div class="td-footer__heading">Get in Touch</div>
+        <p class="td-footer__link">Sussex, United Kingdom</p>
+        <a href="/contact-us" class="td-footer__link" style="color:var(--gold);">Contact Form &rarr;</a>
+      </div>
+    </div>
+    <div class="td-footer__bottom">
+      &copy; 2026 Titan Doors &mdash; TradeFit Sussex. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.td-tab').forEach(function(el) { el.classList.remove('active'); });
+  document.querySelectorAll('.td-tab-panel').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('tab-' + tab).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+(function() {
+  var track = document.getElementById('tdTrack');
+  var slides = track.children;
+  var total = slides.length;
+  var current = 0;
+  var dotsEl = document.getElementById('tdDots');
+  var autoTimer;
+
+  for (var i = 0; i < total; i++) {
+    var dot = document.createElement('button');
+    dot.className = 'td-carousel__dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+    dot.dataset.index = i;
+    dot.addEventListener('click', function() { goTo(parseInt(this.dataset.index)); });
+    dotsEl.appendChild(dot);
+  }
+
+  function goTo(index) {
+    current = ((index % total) + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    var dots = dotsEl.children;
+    for (var j = 0; j < dots.length; j++) {
+      dots[j].classList.toggle('active', j === current);
+    }
+    resetAuto();
+  }
+
+  document.querySelector('.td-carousel__btn--prev').addEventListener('click', function() { goTo(current - 1); });
+  document.querySelector('.td-carousel__btn--next').addEventListener('click', function() { goTo(current + 1); });
+
+  var startX = 0, moveX = 0, dragging = false;
+  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; dragging = true; }, { passive: true });
+  track.addEventListener('touchmove', function(e) { if (dragging) moveX = e.touches[0].clientX - startX; }, { passive: true });
+  track.addEventListener('touchend', function() {
+    if (Math.abs(moveX) > 50) { goTo(current + (moveX < 0 ? 1 : -1)); }
+    moveX = 0; dragging = false;
+  });
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function() { goTo(current + 1); }, 5000);
+  }
+  resetAuto();
+})();
+
+(function() {
+  var targets = document.querySelectorAll('.td-anim, .td-anim-left, .td-anim-right');
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function(el) { el.classList.add('td-visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('td-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  targets.forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>
